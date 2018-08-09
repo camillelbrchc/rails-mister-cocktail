@@ -4,4 +4,26 @@
 <em>Name : </em> <%= @cocktail.name %>
 </div>
 
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li>
+      <h4><%= @dose.cocktail %></h4>
+    </li>
+  <% end %>
+</ul>
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :description, label: 'Dose, en cl' %>
+    <%= f.association :ingredient %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', cocktails_path %>
