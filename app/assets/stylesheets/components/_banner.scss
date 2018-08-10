@@ -1,0 +1,12 @@
+.banner {
+  height: 100vh;
+  background-image: url(http://cdn.foodism.co.uk/gallery/583c274b3f278.jpeg);
+  background-position: cover;
+  display: flex;
+  align-item: center;
+  justify-content: space-around;
+  h1 {
+    margin-top: 300px;
+    color: white;
+  }
+}
