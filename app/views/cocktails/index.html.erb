@@ -1,12 +1,23 @@
-<div class="banner"><h1>All the cocktails ! 🍸</h1></div>
+<div class="banner"><h1>Mixologie</h1></div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li>
-      <h4><%= cocktail.name %></h4>
-      <%= link_to 'Show', cocktail %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-3">
+        <%= link_to cocktail_path(cocktail) do %>
+          <% if cocktail.photo.url %>
+            <div class="cocktail-card" style="background-image: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
+              <h4><%= cocktail.name %></h4>
+            </div>
+          <% else %>
+            <div class="cocktail-card" style="background-image: url('https://stevethebartender.com.au/wp-content/uploads/2016/06/negroni-cocktail-recipe.jpg');">
+                <h4><%= cocktail.name %></h4>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'New Cocktail', new_cocktail_path %>
