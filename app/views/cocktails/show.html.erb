@@ -7,7 +7,7 @@
 <ul>
   <% @cocktail.doses.each do |dose| %>
     <li>
-      <h4><%= @dose.cocktail %></h4>
+      <h4><%= dose.description %> cl of <%= dose.ingredient.name %></h4>
     </li>
   <% end %>
 </ul>
